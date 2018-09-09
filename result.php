@@ -49,7 +49,7 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
 
         <table class="table table-striped">
             <tbody>
-            <?php foreach ($result['name'] as $name) { ?>
+            <?php foreach ((array)$result['name'] as $name) { ?>
                 <tr>
                     <th>お名前</th>
                     <td><?php echo htmlspecialchars($name) ?></td>
@@ -59,19 +59,19 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
                 <tr>
                     <th>住所</th>
                     <td>
-                        <?php foreach ($result['location'] as $name) { ?>
+                        <?php foreach ((array)$result['location'] as $name) { ?>
                             <?php echo htmlspecialchars($name) ?>
                         <?php } ?>
                     </td>
                 </tr>
             <?php } ?>
-            <?php foreach ($result['url'] as $name) { ?>
+            <?php foreach ((array)$result['url'] as $name) { ?>
                 <tr>
                     <th>URL</th>
                     <td><?php echo htmlspecialchars($name) ?></td>
                 </tr>
             <?php } ?>
-            <?php foreach ($result['email'] as $name) { ?>
+            <?php foreach ((array)$result['email'] as $name) { ?>
                 <tr>
                     <th>メールアドレス</th>
                     <td><?php echo htmlspecialchars($name) ?></td>
