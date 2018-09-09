@@ -1,0 +1,6 @@
+/vendor/
+/.vscode/
+/.*.json
+/.idea/
+/composer.lock
+/config.php
