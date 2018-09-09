@@ -1,5 +1,7 @@
 # b-pcard
 
+Google Cloud Platform を使った（実装が）簡単な名刺読込サービス
+
 ## ライブラリインストール
 
 ```bash
