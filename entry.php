@@ -34,7 +34,7 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
     <div class="starter-template">
         <h1>読み込む名刺を指定してください</h1>
         <p>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" id="inpiutGroupForm">
                 <div class="input-group mb-3">
                     <div class="custom-file">
                         <input type="file" name="file" class="custom-file-input" id="inputGroupFile02"
@@ -48,7 +48,7 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
             </form>
         </p>
         <p>
-            <a href="https://github.com/kenji0302/b-card">GitHub</a>
+            <a href="https://github.com/kenji0302/b-card">GitHubでソースを見る</a>
         </p>
     </div>
 
@@ -74,6 +74,22 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
         }
         $('.custom-file-label').html(file.name);
         $('#inputGroupFile02Submit').prop('disabled', false);
+    });
+    $('#inpiutGroupForm').on('submit', function () {
+        var loading = $('<div>読み込み中...</div>');
+        loading.css("z-index", "9999")
+        .css("text-align", "center")
+        .css('color', "#ffffff")
+        .css("padding-top", "250px")
+        .css("position", "absolute")
+        .css("top", "0px")
+        .css("left", "0px")
+        .css("right", "0px")
+        .css("bottom", "0px")
+        .css("background-color", "gray")
+        .css("opacity", "0.8");
+        $('body').append(loading);
+        return true;
     });
 </script>
 
