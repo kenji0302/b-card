@@ -25,11 +25,7 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/">簡単名刺読込</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand" href="./index.php">簡単名刺読込</a>
     </div>
 </nav>
 
@@ -38,18 +34,21 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
     <div class="starter-template">
         <h1>読み込む名刺を指定してください</h1>
         <p>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="input-group mb-3">
-                <div class="custom-file">
-                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile02" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
-                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" name="file" class="custom-file-input" id="inputGroupFile02"
+                               accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png">
+                        <label class="custom-file-label" for="inputGroupFile02">名刺を撮影 / 画像を選択</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary" id="inputGroupFile02Submit" disabled>Upload</button>
+                    </div>
                 </div>
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary" id="inputGroupFile02Submit" disabled>Upload</button>
-                </div>
-            </div>
-        </form>
-
+            </form>
+        </p>
+        <p>
+            <a href="https://github.com/kenji0302/b-card">GitHub</a>
         </p>
     </div>
 
@@ -67,9 +66,9 @@ if (realpath($_SERVER["SCRIPT_FILENAME"]) == realpath(__FILE__)) {
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 <script>
-    $('#inputGroupFile02').on('change', function(){
+    $('#inputGroupFile02').on('change', function () {
         var file = $(this).prop('files')[0];
-        if(file.size>(2 * 1024 * 1024 )){
+        if (file.size > (2 * 1024 * 1024)) {
             alert('2M未満のファイルを指定してください');
             return;
         }
